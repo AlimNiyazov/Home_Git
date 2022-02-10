@@ -1,0 +1,11 @@
+скачиваем устанавливаем образ CENTOS7
+ip a / проверяем активные интерфейся
+ifup enp0s3 / включаем сетевой интерфейс
+yum update / обновляем ос
+yum -y install {nano,vim,mc,....} / выполняем установку софтра
+yum install epel-release / добавлем репозиторий
+yum -y groups install "Gnome Desktop" / устанавливаем графическую оболочку
+yum -y install openssh-server openssh-clients /устанавливаем ssh
+systemctl restart sshd && systemctl status sshd && systemctl enable sshd / запускаем ssh
+yum -y install {'nginx','httpd'} / установка nginx и apache
+ssh-keygen / создаем ключи/ 
