@@ -8,4 +8,5 @@ yum -y groups install "Gnome Desktop" / устанавливаем графич�
 yum -y install openssh-server openssh-clients /устанавливаем ssh
 systemctl restart sshd && systemctl status sshd && systemctl enable sshd / запускаем ssh
 yum -y install {'nginx','httpd'} / установка nginx и apache
-ssh-keygen / создаем ключи/ 
+ssh-keygen / id_rsa.pub /создаем ключи и копируем в Github
+
