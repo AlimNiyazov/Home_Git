@@ -1,0 +1,6 @@
+copy ssh_link from GitHum
+git clone ssh_link / копируем репозиторий на локальный ПК
+git add {file1,file2,file3} / добавляем файлы 
+git commit -m 'comentariy' / коммитим их
+git status /проверяем статус
+git push -u origin main /синхранизируем с сервером origin ветка main/
