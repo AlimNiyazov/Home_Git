@@ -1,0 +1,2 @@
+необходимо заменить файл /etc/nginx/nginx.conf / удаляем блок server, чтобы изменить путь к основному конфигу
+копируем конфиг default.conf в /etc/nginx/cond.d/default.conf
