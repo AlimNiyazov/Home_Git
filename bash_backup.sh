@@ -1,5 +1,7 @@
-#! /bin/bach
-cp /etc/nginx/nginx.conf /root/Home_Git/backup/
+#!/bin/bash
+
+cp /root/text_cron.txt /root/Home_Git/backup/
+
 git add -A
-git commit -m now
+git commit -m ''
 git push -u origin main
