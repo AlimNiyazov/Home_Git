@@ -10,4 +10,4 @@ yum -y install git / установка git
 systemctl restart sshd && systemctl status sshd && systemctl enable sshd / запускаем ssh
 yum -y install {'nginx','httpd'} / установка nginx и apache
 ssh-keygen / id_rsa.pub /создаем ключи и копируем в Github
-
+ntpdate pool.ntp.org /синхронизируем время
