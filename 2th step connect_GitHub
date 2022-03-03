@@ -3,6 +3,7 @@ ssh-keygen / создаем связку ключей
 копируем ключ /user/.ssh/id_rsa.pub в ginhub/settings/ssh key
 copy ssh_link from GitHum
 git clone ssh_link / копируем репозиторий на локальный ПК
+git checkout backup_config / открываем ветку с backup
 git add {file1,file2,file3} / добавляем файлы 
 git commit -m 'comentariy' / коммитим их
 git status /проверяем статус
