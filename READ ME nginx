@@ -1,2 +1,23 @@
-необходимо заменить файл /etc/nginx/nginx.conf / удаляем блок server, чтобы изменить путь к основному конфигу
-копируем конфиг default.conf в /etc/nginx/cond.d/default.conf
+NGING
+Yum install epel-release / добавляем репозиторий
+Yum install nginx / установка nginx
+Yum install httpd / установка apache 
+/etc/selinux/config. Selinux=disabled / отключаем selinux
+Systemctl start nginx / запуск nginx
+Systemctl status ngixn / проверяем статус 
+Systemctl disable firewalld /остановка firewall
+Ps afx / можно проверить работу nginx 
+Systemctl enable ngixn /автозагрузка ngixn
+Ss -ntlp / проверяем какие порты использует nginx
+yum groupinstall "GNOME Desktop" "Graphical Administration Tools" /установка граф
+/etc/nginx/nginx.conf – удаляем блок server
+/etc/nginx/conf.d/ - копируем конфиг файл с github
+Nginx -t / проверяем синтекс
+Systemctl reload nginx / перезапуск службы
+/etc/httpd/conf/httpd.conf – меняем на конфиг с github и проверяем какой указан порт lisen 
+Systemctl start httpd /запуск апач
+/var/www/html/ - копируем файл index.html
+/etc/httpd/conf.d/ добавляем vh1/vh2/vh3.conf
+Apachectl -t / проверяем синтаксис
+Systemctl reload httd /перезапускаем apache
+	
