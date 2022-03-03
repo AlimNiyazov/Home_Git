@@ -14,7 +14,7 @@ yum groupinstall "GNOME Desktop" "Graphical Administration Tools" /устано�
 /etc/nginx/conf.d/ - копируем конфиг файл с github
 Nginx -t / проверяем синтекс
 Systemctl reload nginx / перезапуск службы
-/etc/httpd/conf/httpd.conf – меняем на конфиг с github и проверяем какой указан порт lisen 
+/etc/httpd/conf/httpd.conf – меняем на конфиг с github и проверяем какой указан порт lisen (8080;8081;8082)
 Systemctl start httpd /запуск апач
 /var/www/html/ - копируем файл index.html
 /etc/httpd/conf.d/ добавляем vh1/vh2/vh3.conf
