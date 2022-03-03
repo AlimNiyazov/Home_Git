@@ -1,6 +1,6 @@
 yum install git
 ssh-keygen / создаем связку ключей
-копируем ключ в ginhub/setting/ 
+копируем ключ /user/.ssh/id_rsa.pub в ginhub/settings/ssh key
 copy ssh_link from GitHum
 git clone ssh_link / копируем репозиторий на локальный ПК
 git add {file1,file2,file3} / добавляем файлы 
