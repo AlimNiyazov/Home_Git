@@ -1,4 +1,0 @@
-gitHub
-git init name / создаем каталог
-git config --global user.name "root"
-git config --global user.email email@domain
