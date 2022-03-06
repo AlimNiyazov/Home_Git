@@ -1,0 +1,11 @@
+rpm -Uvh https://repo.mysql.com/mysql80-community-release-el7-5.noarch.rpm / установка репозитория не в скрип т.к версии меняются 
+sed -i 's/enabled=1/enabled=0/' /etc/yum.repos.d/mysql-community.repo /включем репозиторий
+yum --enablerepo=mysql80-community install mysql-community-server /устанавливаем mysql
+/etc/selinux/config set the SELINUX mod to disabled / отключаем полностью selinux
+systemctl start mysqld /запускаем mysql
+systemctl enable mysqld /добавляем в атозапуск
+hostnamectl set-hostname mysql-master /задаем имя базы 'mysql-master'
+reboot
+grep "A temporary password" /var/log/mysqld.log /Выясняем временный пароль
+mysql_secure_installation /Запускаем скрипт безопасности для MySQL
+mysql -u root -p
