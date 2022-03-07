@@ -1,0 +1,13 @@
+yum install -y openssh-server
+yum install -y net-tools; bind-utils;
+/etc/sysconfig/selinux /SELINUX=disabled;
+vim /etc/ssh/sshd_config /add Port 2202
+systemctl restar sshd
+systemctl start firewalld 
+firewall-cmd --add-port 2202/tcp /добавляем правило в firewall
+reboot
+проверка логов
+netstat -tulpn | grep sshd tcp 0 0 0.0.0.0:2202
+netstat -tulpn | grep sshd
+Перегрузим сеть [root@localhost ~]# /etc/init.d/network restart Restarting network (via systemctl): [ OK ]
+ssh -p 2022 root@192.168.1.5 /подключаемся 
