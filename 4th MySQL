@@ -43,4 +43,9 @@ create table SOLO_User (id int); /создаем таблицу
 create table SOLO_Place (id int); /создаем таблицу
 
 
+RECOVERY
+mysql -uroot -p -e "create database SOLO1";
+use SOLO;
+SOLO < dump-SOLO.sql /
+
 
