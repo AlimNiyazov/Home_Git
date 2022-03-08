@@ -9,3 +9,38 @@ reboot
 grep "A temporary password" /var/log/mysqld.log /Выясняем временный пароль
 mysql_secure_installation /Запускаем скрипт безопасности для MySQL
 mysql -u root -p
+
+
+MASTER 
+CREATE USER repl@'%' IDENTIFIED WITH 'caching_sha2_password' BY 'oTUSlave#2020'; /создаем пользователя
+GRANT REPLICATION SLAVE ON *.* TO repl@'%'; /даем право на подключение
+SELECT User, Host FROM mysql.user; /выводит таблицу с пользователями (проверяем)
+SHOW MASTER STATUS; / Смотрим статус Мастера
+select @@server_id; 
+show databases;
+
+
+
+SLAVE
+rm /var/lib/mysql/auto.cnf /удаляем файл uuid не должен совпадать с мастером
+mysql -u root - p / select @@server_id / ВАЖНО у мастера должен ID должен быть меньше 
+если сервер id совпадают /  nano /etc/my.cnf  добавляем server_id = 2
+systemctl restart mysqld
+mysql -u root -p
+CHANGE MASTER TO MASTER_HOST='10.1.120.18', MASTER_USER='repl', MASTER_PASSWORD='oTUSlave#2020', MASTER_LOG_FILE='binlog.000005', MASTER_LOG_POS=688, GET_MASTER_PUBLIC_KEY = 1;
+указываем IP/binlog/key МАСТЕР СЕРВЕРА
+stop slave;
+start slave;
+show slave status\G /смотрим статус
+show databases;
+
+
+
+---------------------
+create database NAME; на МАСТЕРЕ и проверям на слайв
+use SOLO; /выбираем базу
+create table SOLO_User (id int); /создаем таблицу
+create table SOLO_Place (id int); /создаем таблицу
+
+
+
