@@ -1,0 +1,11 @@
+#!/bin/bash
+
+yum install -y erel-release
+yum -y update 
+yum install -y {'nginx',
+yum install -y httpd
+yum install -y mc
+yum install -y git
+yum install -y nano
+
+rpm -Uvh https://repo.mysql.com/mysql80-community-release-el7-5.noarch.rpm
