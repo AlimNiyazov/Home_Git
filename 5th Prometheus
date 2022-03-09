@@ -12,11 +12,21 @@ chown -Rv prometheus: /usr/local/bin/prom{etheus,tool} /etc/prometheus /var/lib/
 sudo -u prometheus /usr/local/bin/prometheus --config.file /etc/prometheus/prometheus.yml --storage.tsdb.path /var/lib/prometheus/ --web.console.templates=/etc/prometheus/consoles --web.console.libraries=/etc/prometheus/console_libraries
 запускаем с правами sudo -u prometheus
 в браузере проверяем 10.1.120.18:9090
-cp /root/Home_Git/prometheus.service /etc/systemd/system/  /копируем конфиг с github
+cp /root/Home_Git/prometheus/prometheus.service /etc/systemd/system/  /копируем конфиг с github
 systemctl daemon-reload && systemctl start prometheus.service && systemctl status prometheus.service  /перезапускаем демона и проверяем статус
 
 NODE_Exporter
 curl -LO https://github.com/prometheus/node_exporter/releases/download/v1.3.1/node_exporter-1.3.1.linux-amd64.tar.gz
 tar -xvf node_exporter-1.3.1.linux-amd64.tar.gz /разархивируем
-cp /root/Home_Gin/prometheus.yul /etc/prometheus/
 cp -vi node_exporter-1.3.1.linux-amd64/node_exporter /usr/local/bin /копируем node_exporter
+cp /root/Home_Gin/prometheus/prometheus.yul /etc/prometheus/
+systemctl restart prometheus.service
+systemctl status prometheus.service
+systemctl enable prometheus.service
+chown node_exporter: /usr/local/bin/node_exporter /передаем права
+cp /root/Home_Git/prometheus/node_exporter.service /etc/systemd/system
+systemctl deamon-reload /перезапускаем всех демонов
+systemctl start node_exporter /
+systemctl status node_exporter
+systemctl enable node_exporter
+localhost:9100 / проверяем в браузере
