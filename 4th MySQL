@@ -44,8 +44,8 @@ create table SOLO_Place (id int); /создаем таблицу
 
 
 RECOVERY
-mysql -uroot -p -e "create database SOLO1";
-use SOLO;
-SOLO < dump-SOLO.sql /
+mysql -uroot -p -e "create database SOLO" /создаем базу
+mysql -uroot -p SOLO</root/Home_Git/dump_SOLO.sql
+
 
 
