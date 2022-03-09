@@ -24,7 +24,7 @@ systemctl restart prometheus.service
 systemctl status prometheus.service
 systemctl enable prometheus.service
 chown node_exporter: /usr/local/bin/node_exporter /передаем права
-cp /root/Home_Git/prometheus/node_exporter.service /etc/systemd/system
+cp /root/Home_Git/prometheus/node_exporter.service /etc/systemd/system/
 systemctl deamon-reload /перезапускаем всех демонов
 systemctl start node_exporter /
 systemctl status node_exporter
