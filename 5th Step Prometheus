@@ -1,0 +1,10 @@
+curl -LO https://github.com/prometheus/prometheus/releases/download/v2.33.5/prometheus-2.33.5.linux-amd64.tar.gz 
+mkdir Prometheus / создаем папку
+mv prometheus-2.33.5.linux-amd64.tar.gz ./Prometheus/  Копируем дистрибутив
+tar -xvf prometheus-2.33.5.linux-amd64.tar.gz /разархивируем
+rm -i prometheus-2.33.5.linux-amd64.tar.gz /удаляем архив
+useradd --no-create-home --shell /usr/sbin/nologin prometheus /создаем пользователья prometheus
+useradd --no-create-home --shell /bin/false node_exporter /создаем пользователья node
+mkdir {/etc/,/var/lib/}prometheus /создаем директории
+cp -riv prometheus-2.33.5.linux-amd64/{console{s,_libraries},prometheus.yul} /etc/prometheus /копируем файлы
+
