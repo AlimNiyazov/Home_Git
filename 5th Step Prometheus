@@ -6,5 +6,7 @@ rm -i prometheus-2.33.5.linux-amd64.tar.gz /удаляем архив
 useradd --no-create-home --shell /usr/sbin/nologin prometheus /создаем пользователья prometheus
 useradd --no-create-home --shell /bin/false node_exporter /создаем пользователья node
 mkdir {/etc/,/var/lib/}prometheus /создаем директории
-cp -riv prometheus-2.33.5.linux-amd64/{console{s,_libraries},prometheus.yul} /etc/prometheus /копируем файлы
-
+cp -iv prometheus-2.33.5.linux-amd64/prom{etheus,tool} /usr/local/bin/  /копируем файлы
+cp -riv prometheus-2.33.5.linux-amd64/{console{s,_libraries},prometheus.yul} /etc/prometheus/ /копируем директории
+chown -Rv prometheus: /usr/local/bin/prom{etheus,tool} /etc/prometheus /var/lib/prometheus/ /передаем права доступа prometheus
+sudo -u prometheus /usr/local/bin/prometheus --config.file /etc/prometheus/prometheus.yml --storage.tsdb.path /var/lib/prometheus/ --web.console.templates=/etc/prometheus/consoles --web.console.libraries=/etc/prometheus/console_libraries
