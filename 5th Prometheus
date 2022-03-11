@@ -30,3 +30,12 @@ systemctl start node_exporter /
 systemctl status node_exporter
 systemctl enable node_exporter
 localhost:9100 / проверяем в браузере
+
+grafana
+curl -LO https://dl.grafana.com/oss/release/grafana-8.4.3-1.x86_64.rpm /скачиваем
+yum install ./grafana-8.4.3-1.x86_64.rpm  /установка графаны
+systemctl daemon-reload && systemctl start grafana-server.service && systemctl status grafana-server.service /запускаем 
+
+
+
+
