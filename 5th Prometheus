@@ -25,7 +25,7 @@ systemctl status prometheus.service
 systemctl enable prometheus.service
 chown node_exporter: /usr/local/bin/node_exporter /передаем права
 cp /root/Home_Git/prometheus/node_exporter.service /etc/systemd/system/
-systemctl deamon-reload /перезапускаем всех демонов
+systemctl daemon-reload /перезапускаем всех демонов
 systemctl start node_exporter /
 systemctl status node_exporter
 systemctl enable node_exporter
@@ -35,6 +35,8 @@ grafana
 curl -LO https://dl.grafana.com/oss/release/grafana-8.4.3-1.x86_64.rpm /скачиваем
 yum install ./grafana-8.4.3-1.x86_64.rpm  /установка графаны
 systemctl daemon-reload && systemctl start grafana-server.service && systemctl status grafana-server.service /запускаем 
+localhost:3000 /запускаем графану
+добавляем в дашборд 1104 node / 11074 / 7249 nginx
 
 
 
